@@ -30,6 +30,8 @@ void CQHEngineUIDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CQHEngineUIDlg, CDialogEx)
     ON_BN_CLICKED(IDC_BTN_ENABLE, &CQHEngineUIDlg::OnBnClickedBtnEnable)
     ON_BN_CLICKED(IDC_BTN_DISABLE, &CQHEngineUIDlg::OnBnClickedBtnDisable)
+    ON_NOTIFY(NM_CLICK, IDC_LINK_52POJIE, &CQHEngineUIDlg::OnNMClickLink52pojie)
+    ON_NOTIFY(NM_RETURN, IDC_LINK_52POJIE, &CQHEngineUIDlg::OnNMClickLink52pojie)
     ON_WM_CTLCOLOR()
 END_MESSAGE_MAP()
 
@@ -594,4 +596,13 @@ HBRUSH CQHEngineUIDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
     }
 
     return hbr;
+}
+
+// 点击/回车触发 SysLink 跳转, NM_CLICK 与 NM_RETURN 共用此处理
+// 用 ShellExecuteW 调起系统默认浏览器打开吾爱破解论坛
+void CQHEngineUIDlg::OnNMClickLink52pojie(NMHDR* pNMHDR, LRESULT* pResult)
+{
+    PNMLINK pNMLink = (PNMLINK)pNMHDR;
+    ShellExecuteW(NULL, L"open", pNMLink->item.szUrl, NULL, NULL, SW_SHOWNORMAL);
+    *pResult = 0;
 }

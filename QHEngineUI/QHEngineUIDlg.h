@@ -77,6 +77,7 @@ protected:
     afx_msg void OnBnClickedBtnEnable();
     afx_msg void OnBnClickedBtnDisable();
     afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
+    afx_msg void OnNMClickLink52pojie(NMHDR* pNMHDR, LRESULT* pResult);
 
     DECLARE_MESSAGE_MAP()
 };

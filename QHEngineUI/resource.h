@@ -10,6 +10,9 @@
 #define IDC_STATUS                 1004
 #define IDC_LABEL_TITLE            1005
 
+// 超链接
+#define IDC_LINK_52POJIE           1006
+
 // 自定义资源（嵌入的驱动文件）
 #define IDR_DRIVER_SYS             2000
 #define IDR_DRIVER_INF             2001
